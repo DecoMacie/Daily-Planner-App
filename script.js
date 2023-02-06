@@ -13,8 +13,22 @@ var currentDate = $('#currentDay');
 currentDate.text(moment().format('dddd, MMMM Do'));
 
 
-// $('#9').on("click", handleFormSubmition(SubmitEvent,'9AM'));
-$('#10').on("click", handleFormSubmition);
+$('#9').on("click", function(event) {
+    event.preventDefault();
+    var appointment = document.getElementById("9AM").value;
+    localStorage.setItem("9AM", appointment);
+    appointment = localStorage.getItem("9AM");
+    alert("OKAY")
+    console.log(appointment)
+});
+$('#10').on("click", function(event) {
+    event.preventDefault();
+    var appointment = document.getElementById("10AM").value;
+    localStorage.setItem("10AM", appointment);
+    // appointment.text = localStorage.getItem("9AM");
+    alert("OKAY")
+    console.log(appointment)
+});
 $('#11').on("click", handleFormSubmition);
 $('#12').on("click", handleFormSubmition);
 $('#13').on("click", handleFormSubmition);
@@ -24,10 +38,9 @@ $('#16').on("click", handleFormSubmition);
 $('#17').on("click", handleFormSubmition);
 
 
-function handleFormSubmition(event, x) {
+function handleFormSubmition(event) {
     event.preventDefault();
     var appointment = document.getElementById("9AM").value;
-    // var appointmentJSON = JSON.stringify(appointment)
     localStorage.setItem("9AM", appointment);
     // appointment.text = localStorage.getItem("9AM");
     alert("OKAY")

@@ -28,55 +28,64 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+    <div class="col-md" id="status"><p></p></textarea></div>
     <div class="container">
       <!-- Timeblocks go here -->
-      <form>
-        <label for="9AM" class="hour">9AM</label>
-        <input type="text" class="description" id="9AM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="9">
-        <br>
-        <label for="hour" class="hour">10AM</label>
-        <input type="text" class="description" id="10AM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="10">
-        <br>
-        <label for="hour" class="hour">11AM</label>
-        <input type="text" class="description" id="11AM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="11">
-        <br>
-        <label for="hour" class="hour">12AM</label>
-        <input type="text" class="description" id="12AM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="12">
-        <br>
-        <label for="hour" class="hour">1PM</label>
-        <input type="text" class="description" id="1PM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="13">
-        <br>
-        <label for="hour" class="hour">2PM</label>
-        <input type="text" class="description" id="2PM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="14">
-        <br>
-        <label for="hour" class="hour">3PM</label>
-        <input type="text" class="description" id="3PM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="15">
-        <br>
-        <label for="hour" class="hour">4PM</label>
-        <input type="text" class="description" id="4PM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="16">
-        <br>
-        <label for="hour" class="hour">5PM</label>
-        <input type="text" class="description" id="5PM">;
-        <!-- <textarea class="description"></textarea> -->
-        <input class="saveBtn" type="submit" value="Submit" id="17">
-        <br>
-      </form>
+      
+        <div id="clock_09" class="row">
+          <div class="hour col-md-1"><span>9AM</span></div>
+          <textarea class="time-block description col-md-10" id="9AM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="9"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_10" class="row">
+          <div class="hour col-md-1"><span>10AM</span></div>
+          <textarea class="time-block description col-md-10" id="10AM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="10"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_11" class="row">
+          <div class="hour col-md-1"><span>11AM</span></div>
+          <textarea class="time-block description col-md-10" id="11AM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="11"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_12" class="row">
+          <div class="hour col-md-1"><span>12AM</span></div>
+          <textarea class="time-block description col-md-10" id="12AM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="12"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_13" class="row">
+          <div class="hour col-md-1"><span>1PM</span></div>
+          <textarea class="time-block description col-md-10" id="1PM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="13"><i class="fa fa-folder"></i></button>
+        </div>
+      
+        <div id="clock_14" class="row">
+          <div class="hour col-md-1"><span>2PM</span></div>
+          <textarea class="time-block description col-md-10" id="2PM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="14"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_15" class="row">
+          <div class="hour col-md-1"><span>3PM</span></div>
+          <textarea class="time-block description col-md-10" id="3PM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="15"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_16" class="row">
+          <div class="hour col-md-1"><span>4PM</span></div>
+          <textarea class="time-block description col-md-10" id="4PM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="16"><i class="fa fa-folder"></i></button>
+        </div>
+
+        <div id="clock_17" class="row">
+          <div class="hour col-md-1"><span>5PM</span></div>
+          <textarea class="time-block description col-md-10" id="5PM" placeholder="Insert event"></textarea>
+          <button class="saveBtn col-md-1" id="17"><i class="fa fa-folder"></i></button>
+        </div>
+      
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
