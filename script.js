@@ -11,7 +11,8 @@ const rowZ = $('.row')
 // var saveButton1 = $('#9');
 // var saveButton1 = $('#9');
 
-
+console.log(currentHr)
+console.log(rowZ)
 
 // handle displaying the date
 currentDate.text(moment().format('dddd, MMMM Do'));
@@ -19,23 +20,24 @@ currentDate.text(moment().format('dddd, MMMM Do'));
 
 
 // Function to compare event time with actual time
-function timeConcept() {
-    var rowID = rowZ.attr('id');
-    if (currentHr > rowID) {
-        rowZ.removeClass("future");
-        rowZ.removeClass("present");
-        rowZ.addClass("past");
-    } else if (currentHr < rowID) {
-        rowZ.removeClass("present");
-        rowZ.removeClass("past");
-        rowZ.addClass("future");
-    } 
-    else {
-        rowZ.removeClass("future");
-        rowZ.removeClass("past");
-        rowZ.addClass("present");
-    }
-  };
+// function timeConcept() {
+//     var rowID = rowZ.attr('id');
+//     console.log(rowID)
+//     if (currentHr > rowID) {
+//         rowZ.removeClass("future");
+//         rowZ.removeClass("present");
+//         rowZ.addClass("past");
+//     } else if (currentHr < rowID) {
+//         rowZ.removeClass("present");
+//         rowZ.removeClass("past");
+//         rowZ.addClass("future");
+//     } 
+//     else {
+//         rowZ.removeClass("future");
+//         rowZ.removeClass("past");
+//         rowZ.addClass("present");
+//     }
+//   };
 
 
 $('.saveBtn').on("click", function(event) {
@@ -45,21 +47,20 @@ $('.saveBtn').on("click", function(event) {
     var appointment_hr = $(this).attr('id')
     localStorage.setItem(appointment_hr, appointment);
     console.log(appointment_hr + " " + appointment)
-    console.log($('#9hr').val)
+    console.log(appointment)
 });
 
 // Loading saved events from local storage
 function loadEvents() {
-    alert("OKAY")
-    $('#9hr').val(localStorage.getItem('#9AM'));
-    $('#10hr').val(localStorage.getItem('#10AM'));
-    $('#11hr').val(localStorage.getItem('#11AM'));
-    $('#12hr').val(localStorage.getItem('#12AM'));
-    $('#13hr').val(localStorage.getItem('#1PM'));
-    $('#14hr').val(localStorage.getItem('#2PM'));
-    $('#15hr').val(localStorage.getItem('#3PM'));
-    $('#16hr').val(localStorage.getItem('#4PM'));
-    $('#17hr').val(localStorage.getItem('#5PM'));
+    $('#9hr').val(localStorage.getItem('9AM'));
+    $('#10hr').val(localStorage.getItem('10AM'));
+    $('#11hr').val(localStorage.getItem('11AM'));
+    $('#12hr').val(localStorage.getItem('12AM'));
+    $('#13hr').val(localStorage.getItem('1PM'));
+    $('#14hr').val(localStorage.getItem('2PM'));
+    $('#15hr').val(localStorage.getItem('3PM'));
+    $('#16hr').val(localStorage.getItem('4PM'));
+    $('#17hr').val(localStorage.getItem('5PM'));
 }
 
 
@@ -98,5 +99,23 @@ function loadEvents() {
 // // }
 
 // // displayTime;
-rowZ.each(timeConcept);
+rowZ.each(function () {
+    var rowID = rowZ.attr('id');
+    console.log(rowID)
+    if (currentHr > rowID) {
+        rowZ.removeClass("future");
+        rowZ.removeClass("present");
+        rowZ.addClass("past");
+    } else if (currentHr < rowID) {
+        rowZ.removeClass("present");
+        rowZ.removeClass("past");
+        rowZ.addClass("future");
+    }
+    else {
+        rowZ.removeClass("future");
+        rowZ.removeClass("past");
+        rowZ.addClass("present");
+    }
+ 
+});
 $(document).ready(loadEvents)
