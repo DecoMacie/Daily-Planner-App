@@ -1,45 +1,34 @@
 var currentDate = $('#currentDay');
 var currentHr = moment().format('HH');
 const rowZ = $('.row')
-// var saveButton1 = $('#9');
-// var saveButton2
-// var saveButton3
-// var saveButton4 = $('#9');
-// var saveButton5 = $('#9');
-// var saveButton1 = $('#9');
-// var saveButton1 = $('#9');
-// var saveButton1 = $('#9');
-// var saveButton1 = $('#9');
 
-console.log(currentHr)
 console.log(rowZ)
 
 // handle displaying the date
 currentDate.text(moment().format('dddd, MMMM Do'));
 
-
-
 // Function to compare event time with actual time
-// function timeConcept() {
-//     var rowID = rowZ.attr('id');
-//     console.log(rowID)
-//     if (currentHr > rowID) {
-//         rowZ.removeClass("future");
-//         rowZ.removeClass("present");
-//         rowZ.addClass("past");
-//     } else if (currentHr < rowID) {
-//         rowZ.removeClass("present");
-//         rowZ.removeClass("past");
-//         rowZ.addClass("future");
-//     } 
-//     else {
-//         rowZ.removeClass("future");
-//         rowZ.removeClass("past");
-//         rowZ.addClass("present");
-//     }
-//   };
+function timeConcept() {
+    var rowID = $(this).attr("id");
+    console.log(rowID)
+    if (currentHr > rowID) {
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
+    } else if (currentHr < rowID) {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+    } 
+    else {
+        $(this).removeClass("future");
+        $(this).removeClass("past");
+        $(this).addClass("present");
+    }
+    
+  };
 
-
+// Saves events to local storage
 $('.saveBtn').on("click", function(event) {
     event.preventDefault();
     console.log(this)
@@ -48,6 +37,8 @@ $('.saveBtn').on("click", function(event) {
     localStorage.setItem(appointment_hr, appointment);
     console.log(appointment_hr + " " + appointment)
     console.log(appointment)
+    $('#status').text("Event successfully Saved!")
+    setTimeout(function() { $('#status').hide(); }, 3000);
 });
 
 // Loading saved events from local storage
@@ -64,58 +55,5 @@ function loadEvents() {
 }
 
 
-
-
-
-// $('#10').on("click", function(event) {
-//     event.preventDefault();
-//     var appointment = document.getElementById("10AM").value;
-//     localStorage.setItem("10AM", appointment);
-//     // appointment.text = localStorage.getItem("9AM");
-//     alert("OKAY")
-//     // console.log($('.row').attr('id');)
-// });
-// $('#11').on("click", handleFormSubmition);
-// $('#12').on("click", handleFormSubmition);
-// $('#13').on("click", handleFormSubmition);
-// $('#14').on("click", handleFormSubmition);
-// $('#15').on("click", handleFormSubmition);
-// $('#16').on("click", handleFormSubmition);
-// $('#17').on("click", handleFormSubmition);
-
-
-// function handleFormSubmition(event) {
-//     event.preventDefault();
-//     var appointment = document.getElementById("9AM").value;
-//     localStorage.setItem("9AM", appointment);
-//     // appointment.text = localStorage.getItem("9AM");
-//     alert("OKAY")
-//     console.log(appointment)
-// }
-// // // handle displaying the date
-// // function displayTime() {
-// //     var todayIs = moment().format('DD MMM YYYY');
-// //     currentDate.text(todayIs);
-// // }
-
-// // displayTime;
-rowZ.each(function () {
-    var rowID = rowZ.attr('id');
-    console.log(rowID)
-    if (currentHr > rowID) {
-        rowZ.removeClass("future");
-        rowZ.removeClass("present");
-        rowZ.addClass("past");
-    } else if (currentHr < rowID) {
-        rowZ.removeClass("present");
-        rowZ.removeClass("past");
-        rowZ.addClass("future");
-    }
-    else {
-        rowZ.removeClass("future");
-        rowZ.removeClass("past");
-        rowZ.addClass("present");
-    }
- 
-});
+$.each(rowZ,timeConcept);
 $(document).ready(loadEvents)
