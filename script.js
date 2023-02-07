@@ -2,15 +2,12 @@ var currentDate = $('#currentDay');
 var currentHr = moment().format('HH');
 const rowZ = $('.row')
 
-console.log(rowZ)
-
 // handle displaying the date
 currentDate.text(moment().format('dddd, MMMM Do'));
 
 // Function to compare event time with actual time
 function timeConcept() {
     var rowID = $(this).attr("id");
-    console.log(rowID)
     if (currentHr > rowID) {
         $(this).removeClass("future");
         $(this).removeClass("present");
@@ -31,14 +28,11 @@ function timeConcept() {
 // Saves events to local storage
 $('.saveBtn').on("click", function(event) {
     event.preventDefault();
-    console.log(this)
     var appointment = $(this).siblings('textarea').val();
     var appointment_hr = $(this).attr('id')
     localStorage.setItem(appointment_hr, appointment);
-    console.log(appointment_hr + " " + appointment)
-    console.log(appointment)
     $('#status').text("Event successfully Saved!")
-    setTimeout(function() { $('#status').hide(); }, 3000);
+    setTimeout(function() { $('#status').hide(); }, 1500);
 });
 
 // Loading saved events from local storage
